@@ -23,13 +23,14 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2019",
-    "rootDir": "."
+    "target": "ES2019"
   },
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
     "**/*.ts",
+    "src/**/*.tsx",
+    "**/*.tsx",
     ".projenrc.ts",
     "projenrc/**/*.ts"
   ],

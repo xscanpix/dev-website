@@ -10,6 +10,9 @@ const monorepo = new MonorepoTsProject({
   packageManager: NodePackageManager.PNPM,
   defaultReleaseBranch: "master",
   projenrcTs: true,
+  tsconfig: {
+    include: ["src/**/*.ts", "**/*.ts", "src/**/*.tsx", "**/*.tsx"],
+  },
 });
 
 new ReactTypeScriptProject({
