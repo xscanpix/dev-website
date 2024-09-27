@@ -28,22 +28,64 @@ const website = new ReactTypeScriptProject({
   name: "dev-website-frontend",
   packageManager: NodePackageManager.PNPM,
   defaultReleaseBranch: "master",
+  eslint: false,
   prettier: true,
-  deps: ["react-router-dom"],
+  tsconfigDev: {
+    compilerOptions: {
+      baseUrl: ".",
+      paths: {
+        "@/*": ["./src/*"],
+      },
+    },
+  },
+  tsconfig: {
+    compilerOptions: {
+      baseUrl: ".",
+      paths: {
+        "@/*": ["./src/*"],
+      },
+    },
+  },
+  deps: [
+    "react-router-dom",
+    "tailwindcss-animate",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge",
+    "lucide-react",
+  ],
   devDeps: [
     "tailwindcss",
     "autoprefixer",
     "postcss",
-    "tailwind-merge",
-    "cva@npm:class-variance-authority",
+    "@craco/craco",
+    "@craco/types",
+    "eslint",
+    "@eslint/js",
+    "@types/eslint__js",
+    "typescript",
+    "typescript-eslint",
   ],
 });
 
+// Use 'craco' instead of 'react-scripts'
 const devTask = website.tasks.tryFind("dev");
 if (devTask) {
   devTask.reset(
-    "npx react-scripts start & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch",
+    "craco start & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch",
   );
+}
+
+// Use 'craco' instead of 'react-scripts'
+const compileTask = website.tasks.tryFind("compile");
+if (compileTask) {
+  compileTask.reset("craco build");
+}
+
+// Use 'craco' instead of 'react-scripts'
+const testTask = website.tasks.tryFind("test");
+if (testTask) {
+  testTask.reset("craco test --watchAll=false --passWithNoTests");
 }
 
 new InfrastructureTsProject({

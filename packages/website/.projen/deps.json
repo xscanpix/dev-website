@@ -1,6 +1,18 @@
 {
   "dependencies": [
     {
+      "name": "@craco/craco",
+      "type": "build"
+    },
+    {
+      "name": "@craco/types",
+      "type": "build"
+    },
+    {
+      "name": "@eslint/js",
+      "type": "build"
+    },
+    {
       "name": "@testing-library/jest-dom",
       "type": "build"
     },
@@ -10,6 +22,10 @@
     },
     {
       "name": "@testing-library/user-event",
+      "type": "build"
+    },
+    {
+      "name": "@types/eslint__js",
       "type": "build"
     },
     {
@@ -30,43 +46,11 @@
       "type": "build"
     },
     {
-      "name": "@typescript-eslint/eslint-plugin",
-      "version": "^7",
-      "type": "build"
-    },
-    {
-      "name": "@typescript-eslint/parser",
-      "version": "^7",
-      "type": "build"
-    },
-    {
       "name": "autoprefixer",
       "type": "build"
     },
     {
-      "name": "cva",
-      "version": "npm:class-variance-authority",
-      "type": "build"
-    },
-    {
-      "name": "eslint-config-prettier",
-      "type": "build"
-    },
-    {
-      "name": "eslint-import-resolver-typescript",
-      "type": "build"
-    },
-    {
-      "name": "eslint-plugin-import",
-      "type": "build"
-    },
-    {
-      "name": "eslint-plugin-prettier",
-      "type": "build"
-    },
-    {
       "name": "eslint",
-      "version": "^8",
       "type": "build"
     },
     {
@@ -83,11 +67,11 @@
       "type": "build"
     },
     {
-      "name": "tailwind-merge",
+      "name": "tailwindcss",
       "type": "build"
     },
     {
-      "name": "tailwindcss",
+      "name": "typescript-eslint",
       "type": "build"
     },
     {
@@ -106,6 +90,18 @@
       "type": "override"
     },
     {
+      "name": "class-variance-authority",
+      "type": "runtime"
+    },
+    {
+      "name": "clsx",
+      "type": "runtime"
+    },
+    {
+      "name": "lucide-react",
+      "type": "runtime"
+    },
+    {
       "name": "react",
       "type": "runtime"
     },
@@ -115,6 +111,14 @@
     },
     {
       "name": "react-router-dom",
+      "type": "runtime"
+    },
+    {
+      "name": "tailwind-merge",
+      "type": "runtime"
+    },
+    {
+      "name": "tailwindcss-animate",
       "type": "runtime"
     },
     {
