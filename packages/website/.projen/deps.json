@@ -106,6 +106,10 @@
       "type": "override"
     },
     {
+      "name": "@radix-ui/react-slot",
+      "type": "runtime"
+    },
+    {
       "name": "class-variance-authority",
       "type": "runtime"
     },

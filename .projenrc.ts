@@ -52,6 +52,7 @@ const website = new ReactTypeScriptProject({
     "clsx",
     "tailwind-merge",
     "lucide-react",
+    "@radix-ui/react-slot",
   ],
   devDeps: [
     "globals",

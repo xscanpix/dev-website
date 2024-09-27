@@ -1,11 +1,5 @@
-import RootLayout from "@/components/RootLayout";
-
 const Home = () => {
-  return (
-    <RootLayout>
-      <p>Hello world!</p>
-    </RootLayout>
-  );
+  return <p>Hello world!</p>;
 };
 
-export default Home;
+export { Home };
