@@ -94,13 +94,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@craco/craco,@craco/types,@eslint/js,@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/eslint__js,@types/jest,@types/react,@types/react-dom,autoprefixer,eslint,globals,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript-eslint,class-variance-authority,clsx,lucide-react,react,react-dom,react-router-dom,tailwind-merge,web-vitals"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@craco/craco,@craco/types,@eslint/js,@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/eslint__js,@types/jest,@types/react,@types/react-dom,autoprefixer,craco-esbuild,eslint,globals,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript-eslint,class-variance-authority,clsx,lucide-react,react,react-dom,react-router-dom,tailwind-merge,web-vitals"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @craco/craco @craco/types @eslint/js @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/eslint__js @types/jest @types/node @types/react @types/react-dom autoprefixer eslint globals postcss postcss-import prettier react-scripts tailwindcss tailwindcss-animate typescript-eslint typescript class-variance-authority clsx lucide-react react react-dom react-router-dom tailwind-merge web-vitals"
+          "exec": "pnpm update @craco/craco @craco/types @eslint/js @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/eslint__js @types/jest @types/node @types/react @types/react-dom autoprefixer craco-esbuild eslint globals postcss postcss-import prettier react-scripts tailwindcss tailwindcss-animate typescript-eslint typescript class-variance-authority clsx lucide-react react react-dom react-router-dom tailwind-merge web-vitals"
         },
         {
           "exec": "npx projen"

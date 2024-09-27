@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import path from "path";
 
 import { type CracoConfig } from "@craco/types";
@@ -8,6 +9,7 @@ const config: CracoConfig = {
       "@": path.resolve(__dirname, "src"),
     },
   },
-} as const;
+  plugins: [{ plugin: require("craco-esbuild") }],
+};
 
 export default config;

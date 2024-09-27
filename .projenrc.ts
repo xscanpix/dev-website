@@ -62,6 +62,7 @@ const website = new ReactTypeScriptProject({
     "postcss-import",
     "@craco/craco",
     "@craco/types",
+    "craco-esbuild",
     "eslint",
     "@eslint/js",
     "@types/eslint__js",

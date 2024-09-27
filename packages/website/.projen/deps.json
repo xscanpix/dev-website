@@ -50,6 +50,10 @@
       "type": "build"
     },
     {
+      "name": "craco-esbuild",
+      "type": "build"
+    },
+    {
       "name": "eslint",
       "type": "build"
     },
