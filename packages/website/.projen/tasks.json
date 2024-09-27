@@ -39,7 +39,7 @@
       "description": "Starts the react application",
       "steps": [
         {
-          "exec": "react-scripts start"
+          "exec": "npx react-scripts start & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch"
         }
       ]
     },
@@ -107,13 +107,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/jest,@types/react,@types/react-dom,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,prettier,react,react-dom,web-vitals"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/jest,@types/react,@types/react-dom,autoprefixer,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,postcss,prettier,tailwind-merge,tailwindcss,react,react-dom,react-router-dom,web-vitals"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint prettier react-scripts typescript react react-dom web-vitals"
+          "exec": "pnpm update @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser autoprefixer cva eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint postcss prettier react-scripts tailwind-merge tailwindcss typescript react react-dom react-router-dom web-vitals"
         },
         {
           "exec": "npx projen"

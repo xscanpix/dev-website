@@ -40,6 +40,15 @@
       "type": "build"
     },
     {
+      "name": "autoprefixer",
+      "type": "build"
+    },
+    {
+      "name": "cva",
+      "version": "npm:class-variance-authority",
+      "type": "build"
+    },
+    {
       "name": "eslint-config-prettier",
       "type": "build"
     },
@@ -61,12 +70,24 @@
       "type": "build"
     },
     {
+      "name": "postcss",
+      "type": "build"
+    },
+    {
       "name": "prettier",
       "type": "build"
     },
     {
       "name": "react-scripts",
       "version": "^5",
+      "type": "build"
+    },
+    {
+      "name": "tailwind-merge",
+      "type": "build"
+    },
+    {
+      "name": "tailwindcss",
       "type": "build"
     },
     {
@@ -90,6 +111,10 @@
     },
     {
       "name": "react-dom",
+      "type": "runtime"
+    },
+    {
+      "name": "react-router-dom",
       "type": "runtime"
     },
     {
