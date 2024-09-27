@@ -54,7 +54,15 @@
       "type": "build"
     },
     {
+      "name": "globals",
+      "type": "build"
+    },
+    {
       "name": "postcss",
+      "type": "build"
+    },
+    {
+      "name": "postcss-import",
       "type": "build"
     },
     {
@@ -68,6 +76,10 @@
     },
     {
       "name": "tailwindcss",
+      "type": "build"
+    },
+    {
+      "name": "tailwindcss-animate",
       "type": "build"
     },
     {
@@ -115,10 +127,6 @@
     },
     {
       "name": "tailwind-merge",
-      "type": "runtime"
-    },
-    {
-      "name": "tailwindcss-animate",
       "type": "runtime"
     },
     {
