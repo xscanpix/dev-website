@@ -73,7 +73,7 @@ const test = new NodeProject({
 });
 
 test.addTask("dev", {
-  exec: "npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch & npx vite",
+  exec: "npx vite & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch",
 });
 
 const testCompileTask = test.tasks.tryFind("compile");

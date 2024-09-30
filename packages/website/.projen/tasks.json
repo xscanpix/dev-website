@@ -26,7 +26,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "npx tsc -b && npx vite build"
+          "exec": "npx tailwindcss -i ./src/styles/main.css -o ./src/index.css && npx tsc -b && npx vite build"
         }
       ]
     },
@@ -38,7 +38,7 @@
       "name": "dev",
       "steps": [
         {
-          "exec": "npx vite"
+          "exec": "npx vite & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch"
         }
       ]
     },
