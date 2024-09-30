@@ -1,5 +1,5 @@
 {
-  "name": "dev-website-frontend",
+  "name": "dev-website-website",
   "root": "packages/website",
   "targets": {
     "default": {
@@ -51,6 +51,13 @@
         "cwd": "packages/website"
       }
     },
+    "test:watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm exec projen test:watch",
+        "cwd": "packages/website"
+      }
+    },
     "post-upgrade": {
       "executor": "nx:run-commands",
       "options": {
@@ -65,17 +72,24 @@
         "cwd": "packages/website"
       }
     },
-    "watch": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "pnpm exec projen watch",
-        "cwd": "packages/website"
-      }
-    },
     "dev": {
       "executor": "nx:run-commands",
       "options": {
         "command": "pnpm exec projen dev",
+        "cwd": "packages/website"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm exec projen lint",
+        "cwd": "packages/website"
+      }
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm exec projen preview",
         "cwd": "packages/website"
       }
     }

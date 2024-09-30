@@ -20,7 +20,7 @@ export class DevWebsiteFrontend extends Construct {
     super(scope, id);
 
     const website = new StaticWebsite(this, id, {
-      websiteContentPath: "../website/build",
+      websiteContentPath: "../website/dist",
       distributionProps: {
         certificate: props?.acmCertificate,
         domainNames: props?.domainNames,

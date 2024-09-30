@@ -29,6 +29,7 @@
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
+    "packages/infra/src/**/*.ts",
     "packages/website/src/**/*.tsx",
     "packages/website/src/**/*.ts",
     "packages/website/tailwind.config.ts",

@@ -1,8 +1,7 @@
 import { InfrastructureTsProject } from "@aws/pdk/infrastructure";
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 
-import { NodePackageManager } from "projen/lib/javascript";
-import { ReactTypeScriptProject } from "projen/lib/web";
+import { NodePackageManager, NodeProject } from "projen/lib/javascript";
 
 const monorepo = new MonorepoTsProject({
   devDeps: ["@aws/pdk"],
@@ -15,82 +14,13 @@ const monorepo = new MonorepoTsProject({
       rootDir: ".",
     },
     include: [
+      "packages/infra/src/**/*.ts",
       "packages/website/src/**/*.tsx",
       "packages/website/src/**/*.ts",
       "packages/website/tailwind.config.ts",
     ],
   },
 });
-
-const website = new ReactTypeScriptProject({
-  parent: monorepo,
-  outdir: "packages/website",
-  name: "dev-website-frontend",
-  packageManager: NodePackageManager.PNPM,
-  defaultReleaseBranch: "master",
-  eslint: false,
-  prettier: true,
-  tsconfigDev: {
-    compilerOptions: {
-      baseUrl: ".",
-      paths: {
-        "@/*": ["./src/*"],
-      },
-    },
-  },
-  tsconfig: {
-    compilerOptions: {
-      baseUrl: ".",
-      paths: {
-        "@/*": ["./src/*"],
-      },
-    },
-  },
-  deps: [
-    "react-router-dom",
-    "class-variance-authority",
-    "clsx",
-    "tailwind-merge",
-    "lucide-react",
-    "@radix-ui/react-slot",
-  ],
-  devDeps: [
-    "globals",
-    "tailwindcss",
-    "tailwindcss-animate",
-    "autoprefixer",
-    "postcss",
-    "postcss-import",
-    "@craco/craco",
-    "@craco/types",
-    "craco-esbuild",
-    "eslint",
-    "@eslint/js",
-    "@types/eslint__js",
-    "typescript",
-    "typescript-eslint",
-  ],
-});
-
-// Use 'craco' instead of 'react-scripts'
-const devTask = website.tasks.tryFind("dev");
-if (devTask) {
-  devTask.reset(
-    "craco start & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch",
-  );
-}
-
-// Use 'craco' instead of 'react-scripts'
-const compileTask = website.tasks.tryFind("compile");
-if (compileTask) {
-  compileTask.reset("craco build");
-}
-
-// Use 'craco' instead of 'react-scripts'
-const testTask = website.tasks.tryFind("test");
-if (testTask) {
-  testTask.reset("craco test --watchAll=false --passWithNoTests");
-}
 
 new InfrastructureTsProject({
   parent: monorepo,
@@ -99,6 +29,67 @@ new InfrastructureTsProject({
   packageManager: NodePackageManager.PNPM,
   defaultReleaseBranch: "master",
   prettier: true,
+});
+
+const test = new NodeProject({
+  parent: monorepo,
+  outdir: "packages/website",
+  name: "dev-website-website",
+  packageManager: NodePackageManager.PNPM,
+  defaultReleaseBranch: "master",
+  prettier: true,
+  gitIgnoreOptions: {
+    ignorePatterns: ["dist"],
+  },
+  devDeps: [
+    "@eslint/js",
+    "@types/react",
+    "@types/react-dom",
+    "@vitejs/plugin-react",
+    "eslint",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react-refresh",
+    "globals",
+    "typescript",
+    "typescript-eslint",
+    "vite",
+    "tailwindcss",
+    "tailwindcss-animate",
+    "autoprefixer",
+    "postcss",
+    "postcss-import",
+    "vite-tsconfig-paths",
+  ],
+  deps: [
+    "react",
+    "react-dom",
+    "react-router-dom",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge",
+    "lucide-react",
+    "@radix-ui/react-slot",
+  ],
+});
+
+test.addTask("dev", {
+  exec: "npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch & npx vite",
+});
+
+const testCompileTask = test.tasks.tryFind("compile");
+if (testCompileTask) {
+  testCompileTask.reset(
+    "npx tailwindcss -i ./src/styles/main.css -o ./src/index.css && npx tsc -b && npx vite build",
+    {},
+  );
+}
+
+test.addTask("lint", {
+  exec: "npx eslint .",
+});
+
+test.addTask("preview", {
+  exec: "npx vite preview",
 });
 
 monorepo.synth();

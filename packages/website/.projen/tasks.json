@@ -26,7 +26,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "craco build"
+          "exec": "npx tsc -b && npx vite build"
         }
       ]
     },
@@ -36,10 +36,9 @@
     },
     "dev": {
       "name": "dev",
-      "description": "Starts the react application",
       "steps": [
         {
-          "exec": "craco start & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch"
+          "exec": "npx vite"
         }
       ]
     },
@@ -61,9 +60,25 @@
         }
       ]
     },
+    "lint": {
+      "name": "lint",
+      "steps": [
+        {
+          "exec": "npx eslint ."
+        }
+      ]
+    },
     "package": {
       "name": "package",
-      "description": "Creates the distribution package"
+      "description": "Creates the distribution package",
+      "steps": [
+        {
+          "exec": "mkdir -p dist/js"
+        },
+        {
+          "exec": "pnpm pack --pack-destination dist/js"
+        }
+      ]
     },
     "post-compile": {
       "name": "post-compile",
@@ -77,12 +92,30 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "preview": {
+      "name": "preview",
+      "steps": [
+        {
+          "exec": "npx vite preview"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
       "steps": [
         {
-          "exec": "craco test --watchAll=false --passWithNoTests"
+          "exec": "jest --passWithNoTests --updateSnapshot",
+          "receiveArgs": true
+        }
+      ]
+    },
+    "test:watch": {
+      "name": "test:watch",
+      "description": "Run jest in watch mode",
+      "steps": [
+        {
+          "exec": "jest --watch"
         }
       ]
     },
@@ -94,28 +127,19 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@craco/craco,@craco/types,@eslint/js,@testing-library/jest-dom,@testing-library/react,@testing-library/user-event,@types/eslint__js,@types/jest,@types/react,@types/react-dom,autoprefixer,craco-esbuild,eslint,globals,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript-eslint,@radix-ui/react-slot,class-variance-authority,clsx,lucide-react,react,react-dom,react-router-dom,tailwind-merge,web-vitals"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@eslint/js,@types/react,@types/react-dom,@vitejs/plugin-react,autoprefixer,eslint,eslint-plugin-react-hooks,eslint-plugin-react-refresh,globals,jest,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript,typescript-eslint,vite,vite-tsconfig-paths,@radix-ui/react-slot,class-variance-authority,clsx,lucide-react,react,react-dom,react-router-dom,tailwind-merge"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @craco/craco @craco/types @eslint/js @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/eslint__js @types/jest @types/node @types/react @types/react-dom autoprefixer craco-esbuild eslint globals postcss postcss-import prettier react-scripts tailwindcss tailwindcss-animate typescript-eslint typescript @radix-ui/react-slot class-variance-authority clsx lucide-react react react-dom react-router-dom tailwind-merge web-vitals"
+          "exec": "pnpm update @eslint/js @types/react @types/react-dom @vitejs/plugin-react autoprefixer eslint eslint-plugin-react-hooks eslint-plugin-react-refresh globals jest jest-junit postcss postcss-import prettier tailwindcss tailwindcss-animate typescript typescript-eslint vite vite-tsconfig-paths @radix-ui/react-slot class-variance-authority clsx lucide-react react react-dom react-router-dom tailwind-merge"
         },
         {
           "exec": "npx projen"
         },
         {
           "spawn": "post-upgrade"
-        }
-      ]
-    },
-    "watch": {
-      "name": "watch",
-      "description": "Watch & compile in the background",
-      "steps": [
-        {
-          "exec": "tsc --build -w"
         }
       ]
     }

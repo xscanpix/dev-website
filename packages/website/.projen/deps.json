@@ -1,40 +1,7 @@
 {
   "dependencies": [
     {
-      "name": "@craco/craco",
-      "type": "build"
-    },
-    {
-      "name": "@craco/types",
-      "type": "build"
-    },
-    {
       "name": "@eslint/js",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/jest-dom",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/react",
-      "type": "build"
-    },
-    {
-      "name": "@testing-library/user-event",
-      "type": "build"
-    },
-    {
-      "name": "@types/eslint__js",
-      "type": "build"
-    },
-    {
-      "name": "@types/jest",
-      "type": "build"
-    },
-    {
-      "name": "@types/node",
-      "version": "^18",
       "type": "build"
     },
     {
@@ -46,11 +13,11 @@
       "type": "build"
     },
     {
-      "name": "autoprefixer",
+      "name": "@vitejs/plugin-react",
       "type": "build"
     },
     {
-      "name": "craco-esbuild",
+      "name": "autoprefixer",
       "type": "build"
     },
     {
@@ -58,7 +25,24 @@
       "type": "build"
     },
     {
+      "name": "eslint-plugin-react-hooks",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-react-refresh",
+      "type": "build"
+    },
+    {
       "name": "globals",
+      "type": "build"
+    },
+    {
+      "name": "jest",
+      "type": "build"
+    },
+    {
+      "name": "jest-junit",
+      "version": "^15",
       "type": "build"
     },
     {
@@ -74,11 +58,6 @@
       "type": "build"
     },
     {
-      "name": "react-scripts",
-      "version": "^5",
-      "type": "build"
-    },
-    {
       "name": "tailwindcss",
       "type": "build"
     },
@@ -87,23 +66,20 @@
       "type": "build"
     },
     {
+      "name": "typescript",
+      "type": "build"
+    },
+    {
       "name": "typescript-eslint",
       "type": "build"
     },
     {
-      "name": "typescript",
-      "version": "^4.0.3",
+      "name": "vite",
       "type": "build"
     },
     {
-      "name": "@types/express-serve-static-core",
-      "version": "4.17.30",
-      "type": "override"
-    },
-    {
-      "name": "@types/express",
-      "version": "4.17.13",
-      "type": "override"
+      "name": "vite-tsconfig-paths",
+      "type": "build"
     },
     {
       "name": "@radix-ui/react-slot",
@@ -135,10 +111,6 @@
     },
     {
       "name": "tailwind-merge",
-      "type": "runtime"
-    },
-    {
-      "name": "web-vitals",
       "type": "runtime"
     }
   ],
