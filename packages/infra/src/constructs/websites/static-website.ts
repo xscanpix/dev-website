@@ -216,6 +216,7 @@ export class StaticWebsite extends Construct {
 
     const defaultRootObject =
       distributionProps?.defaultRootObject ?? "index.html";
+
     this.cloudFrontDistribution = new Distribution(
       this,
       "CloudfrontDistribution",

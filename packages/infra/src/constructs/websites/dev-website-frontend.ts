@@ -28,6 +28,9 @@ export class DevWebsiteFrontend extends Construct {
           origin: new StaticWebsiteOrigin(),
         },
       },
+      webAclProps: {
+        disable: true,
+      },
     });
 
     NagSuppressions.addResourceSuppressions(

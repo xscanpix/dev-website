@@ -37,7 +37,7 @@
   "ignorePatterns": [
     "packages/**/*.*",
     "!.projenrc.ts",
-    "!projenrc/**/*.ts"
+    "!./projects/**/*.ts"
   ],
   "rules": {
     "@typescript-eslint/no-require-imports": [
@@ -50,7 +50,7 @@
           "**/test/**",
           "**/build-tools/**",
           ".projenrc.ts",
-          "projenrc/**/*.ts"
+          "./projects/**/*.ts"
         ],
         "optionalDependencies": false,
         "peerDependencies": true

@@ -34,7 +34,7 @@
     "packages/website/src/**/*.ts",
     "packages/website/tailwind.config.ts",
     ".projenrc.ts",
-    "projenrc/**/*.ts"
+    "./projects/**/*.ts"
   ],
   "exclude": [
     "node_modules"

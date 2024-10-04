@@ -1,7 +1,9 @@
-import { InfrastructureTsProject } from "@aws/pdk/infrastructure";
 import { MonorepoTsProject } from "@aws/pdk/monorepo";
 
-import { NodePackageManager, NodeProject } from "projen/lib/javascript";
+import { NodePackageManager } from "projen/lib/javascript";
+
+import { createFrontendProject } from "./projects/frontend";
+import { createInfrastructureProject } from "./projects/infrastructure";
 
 const monorepo = new MonorepoTsProject({
   devDeps: ["@aws/pdk"],
@@ -9,6 +11,9 @@ const monorepo = new MonorepoTsProject({
   packageManager: NodePackageManager.PNPM,
   defaultReleaseBranch: "master",
   projenrcTs: true,
+  projenrcTsOptions: {
+    projenCodeDir: "./projects",
+  },
   tsconfig: {
     compilerOptions: {
       rootDir: ".",
@@ -22,74 +27,16 @@ const monorepo = new MonorepoTsProject({
   },
 });
 
-new InfrastructureTsProject({
+createInfrastructureProject({
   parent: monorepo,
   outdir: "packages/infra",
   name: "dev-website-infra",
-  packageManager: NodePackageManager.PNPM,
-  defaultReleaseBranch: "master",
-  prettier: true,
 });
 
-const test = new NodeProject({
+createFrontendProject({
   parent: monorepo,
   outdir: "packages/website",
   name: "dev-website-website",
-  packageManager: NodePackageManager.PNPM,
-  defaultReleaseBranch: "master",
-  prettier: true,
-  gitIgnoreOptions: {
-    ignorePatterns: ["dist"],
-  },
-  devDeps: [
-    "@eslint/js",
-    "@types/react",
-    "@types/react-dom",
-    "@vitejs/plugin-react",
-    "eslint",
-    "eslint-plugin-react-hooks",
-    "eslint-plugin-react-refresh",
-    "globals",
-    "typescript",
-    "typescript-eslint",
-    "vite",
-    "tailwindcss",
-    "tailwindcss-animate",
-    "autoprefixer",
-    "postcss",
-    "postcss-import",
-    "vite-tsconfig-paths",
-  ],
-  deps: [
-    "react",
-    "react-dom",
-    "react-router-dom",
-    "class-variance-authority",
-    "clsx",
-    "tailwind-merge",
-    "lucide-react",
-    "@radix-ui/react-slot",
-  ],
-});
-
-test.addTask("dev", {
-  exec: "npx vite & npx tailwindcss -i ./src/styles/main.css -o ./src/index.css --watch",
-});
-
-const testCompileTask = test.tasks.tryFind("compile");
-if (testCompileTask) {
-  testCompileTask.reset(
-    "npx tailwindcss -i ./src/styles/main.css -o ./src/index.css && npx tsc -b && npx vite build",
-    {},
-  );
-}
-
-test.addTask("lint", {
-  exec: "npx eslint .",
-});
-
-test.addTask("preview", {
-  exec: "npx vite preview",
 });
 
 monorepo.synth();

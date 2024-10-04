@@ -6,22 +6,29 @@ import "./index.css";
 
 import routes from "./pages/routes";
 import { ThemeProvider } from "./contexts/ThemeProvider";
+import ComingSoon from "./pages/ComingSoon";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 
+const active = false;
+
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        {routes}
-      </BrowserRouter>
-    </ThemeProvider>
+    {active ? (
+      <ThemeProvider>
+        <BrowserRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          {routes}
+        </BrowserRouter>
+      </ThemeProvider>
+    ) : (
+      <ComingSoon />
+    )}
   </React.StrictMode>,
 );
