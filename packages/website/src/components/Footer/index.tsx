@@ -1,9 +1,11 @@
+import { Container } from "react-bootstrap";
+
 const Footer = () => {
   return (
-    <footer className="container min-w-full px-6  flex items-center min-h-24">
-      <div className="mx-auto">
+    <footer>
+      <Container className="flex justify-center min-h-24 align-middle items-center">
         © 2024 Svante Nilsson. All rights reserved.
-      </div>
+      </Container>
     </footer>
   );
 };

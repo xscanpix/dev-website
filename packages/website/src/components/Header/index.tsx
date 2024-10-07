@@ -1,29 +1,65 @@
-import { useTheme } from "@/contexts/ThemeProvider";
-import { NavLink } from "react-router-dom";
+import { MouseEventHandler, useState } from "react";
+import { Container, Navbar, NavDropdown } from "react-bootstrap";
+
+import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const themeContext = useTheme();
+  const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
 
-  const bgColor = themeContext.theme === "light" ? "bg-black" : "bg-white";
-  const textColor =
-    themeContext.theme === "light" ? "text-white" : "text-black";
+  const handleProjectDropdownMouseEnter: MouseEventHandler<
+    HTMLElement
+  > = () => {
+    setShowProjectsDropdown(true);
+  };
+
+  const handleProjectDropdownMouseLeave: MouseEventHandler<
+    HTMLElement
+  > = () => {
+    setShowProjectsDropdown(false);
+  };
 
   return (
-    <header
-      className={`container min-w-full px-6 flex min-h-24 items-center ${bgColor}`}
-    >
-      <div className={`text-xl h-fit ${textColor}`}>Header</div>
-      <div className="container ml-6 flex gap-4">
-        <NavLink to="/" className={textColor}>
-          Home
-        </NavLink>
-        <NavLink to="/about" className={textColor}>
-          About
-        </NavLink>
-        <NavLink to="/projects" className={textColor}>
-          Projects
-        </NavLink>
-      </div>
+    <header>
+      <Navbar
+        collapseOnSelect
+        expand="md"
+        bg="dark"
+        data-bs-theme="dark"
+        className="py-3"
+      >
+        <Container>
+          <Navbar.Brand as={Link} to="/" className="text-3xl flex-grow-[0.2]">
+            svante nilsson dev
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-nav" />
+          <Navbar.Collapse id="navbar-nav" className="flex-grow-1">
+            <Nav className="me-auto my-2">
+              <Nav.Link as={Link} to="/" className="text-xl">
+                Home
+              </Nav.Link>
+              <NavDropdown
+                as={Link}
+                to="/projects"
+                title="Projects"
+                id="nav-dropdown-projects"
+                className="text-xl"
+                show={showProjectsDropdown}
+                onMouseEnter={handleProjectDropdownMouseEnter}
+                onMouseLeave={handleProjectDropdownMouseLeave}
+              >
+                <NavDropdown.Item as={Link} to="/projects/websocketchat">
+                  Websocket Chat
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item as={Link} to="/projects">
+                  All projects
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </header>
   );
 };

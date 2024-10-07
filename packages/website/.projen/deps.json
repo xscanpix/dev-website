@@ -13,6 +13,10 @@
       "type": "build"
     },
     {
+      "name": "@types/react-router-bootstrap",
+      "type": "build"
+    },
+    {
       "name": "@vitejs/plugin-react",
       "type": "build"
     },
@@ -86,6 +90,10 @@
       "type": "runtime"
     },
     {
+      "name": "bootstrap",
+      "type": "runtime"
+    },
+    {
       "name": "class-variance-authority",
       "type": "runtime"
     },
@@ -102,7 +110,15 @@
       "type": "runtime"
     },
     {
+      "name": "react-bootstrap",
+      "type": "runtime"
+    },
+    {
       "name": "react-dom",
+      "type": "runtime"
+    },
+    {
+      "name": "react-router-bootstrap",
       "type": "runtime"
     },
     {

@@ -1,15 +1,14 @@
-import { Outlet } from "react-router-dom";
-
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PropsWithChildren } from "react";
 
-const RootLayout = () => {
+interface RootLayoutProps extends PropsWithChildren {}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <div className="min-w-full ">
+    <div className="min-w-full bg-background">
       <Header />
-      <div className="container mx-auto min-h-[calc(100vh_-_12rem)] flex flex-col">
-        <Outlet />
-      </div>
+      {children}
       <Footer />
     </div>
   );

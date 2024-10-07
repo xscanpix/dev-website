@@ -127,13 +127,13 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@eslint/js,@types/react,@types/react-dom,@vitejs/plugin-react,autoprefixer,eslint,eslint-plugin-react-hooks,eslint-plugin-react-refresh,globals,jest,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript,typescript-eslint,vite,vite-tsconfig-paths,@radix-ui/react-slot,class-variance-authority,clsx,lucide-react,react,react-dom,react-router-dom,tailwind-merge"
+          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@eslint/js,@types/react,@types/react-dom,@types/react-router-bootstrap,@vitejs/plugin-react,autoprefixer,eslint,eslint-plugin-react-hooks,eslint-plugin-react-refresh,globals,jest,postcss,postcss-import,prettier,tailwindcss,tailwindcss-animate,typescript,typescript-eslint,vite,vite-tsconfig-paths,@radix-ui/react-slot,bootstrap,class-variance-authority,clsx,lucide-react,react,react-bootstrap,react-dom,react-router-bootstrap,react-router-dom,tailwind-merge"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @eslint/js @types/react @types/react-dom @vitejs/plugin-react autoprefixer eslint eslint-plugin-react-hooks eslint-plugin-react-refresh globals jest jest-junit postcss postcss-import prettier tailwindcss tailwindcss-animate typescript typescript-eslint vite vite-tsconfig-paths @radix-ui/react-slot class-variance-authority clsx lucide-react react react-dom react-router-dom tailwind-merge"
+          "exec": "pnpm update @eslint/js @types/react @types/react-dom @types/react-router-bootstrap @vitejs/plugin-react autoprefixer eslint eslint-plugin-react-hooks eslint-plugin-react-refresh globals jest jest-junit postcss postcss-import prettier tailwindcss tailwindcss-animate typescript typescript-eslint vite vite-tsconfig-paths @radix-ui/react-slot bootstrap class-variance-authority clsx lucide-react react react-bootstrap react-dom react-router-bootstrap react-router-dom tailwind-merge"
         },
         {
           "exec": "npx projen"

@@ -24,6 +24,7 @@ export function createFrontendProject(props: FrontendProjectProps) {
       "@eslint/js",
       "@types/react",
       "@types/react-dom",
+      "@types/react-router-bootstrap",
       "@vitejs/plugin-react",
       "eslint",
       "eslint-plugin-react-hooks",
@@ -48,6 +49,8 @@ export function createFrontendProject(props: FrontendProjectProps) {
       "tailwind-merge",
       "lucide-react",
       "@radix-ui/react-slot",
+      "react-bootstrap",
+      "bootstrap",
     ],
   });
 
